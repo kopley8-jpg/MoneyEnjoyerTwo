@@ -1,7 +1,7 @@
 apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
-
+apply plugin: 'com.google.gms.google-services' 
 /**
  * This is the configuration block to customize your React Native Android app.
  * By default you don't need to apply any configuration, just uncomment the lines you need.
@@ -86,16 +86,16 @@ android {
         versionName "1.0"
     }
     signingConfigs {
-        debug {
-            storeFile file('debug.keystore')
-            storePassword 'android'
-            keyAlias 'androiddebugkey'
-            keyPassword 'android'
-        }
+        moneyenjoyerDebug {
+            storeFile file("../moneyenjoyer-debug.keystore")
+            storePassword "z3o5n6K7"
+            keyAlias "moneyenjoyer"
+            keyPassword "z3o5n6K7"
+        }        
     }
     buildTypes {
         debug {
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.moneyenjoyerDebug
         }
         release {
             // Caution! In production, you need to generate your own keystore file.

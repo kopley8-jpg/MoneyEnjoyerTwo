@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1102738717",
+    "project_id": "moneyenjoyer-f1e78",
+    "storage_bucket": "moneyenjoyer-f1e78.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1102738717:android:17c0316925a90cbd9f9df4",
+        "android_client_info": {
+          "package_name": "com.moneyenjoyer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1102738717-dvhjip9oulga8cq3frmontacvm8fn8b6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.moneyenjoyer",
+            "certificate_hash": "8fd382a0486722af5525900a5f0692f2403e74fc"
+          }
+        },
+        {
+          "client_id": "1102738717-co30kqpj0ipt8fo26gr1ucqvm6jn1p0b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9-Jq0Y5zV_R7R0-uaJwl19YzOyvkrZg0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1102738717-co30kqpj0ipt8fo26gr1ucqvm6jn1p0b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
