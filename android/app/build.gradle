@@ -87,10 +87,10 @@ android {
     }
     signingConfigs {
         moneyenjoyerDebug {
-            storeFile file("../moneyenjoyer-debug.keystore")
-            storePassword "z3o5n6K7"
-            keyAlias "moneyenjoyer"
-            keyPassword "z3o5n6K7"
+        storeFile file("moneyenjoyer-debug.keystore")
+        storePassword "z3o5n6K7"
+        keyAlias "moneyenjoyer"
+        keyPassword "z3o5n6K7"
         }        
     }
     buildTypes {

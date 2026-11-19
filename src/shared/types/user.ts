@@ -28,6 +28,7 @@ type Folder = {
 };
 
 type Chain = {
+  id: string;
   folderId: string;
   name: string;
 };

@@ -1,16 +1,18 @@
 import { SignInWithGoogleButton } from '@/features/auth/sign-in-with-google/SignInWithGoogleButton';
-import { StyleSheet, View } from 'react-native';
-import { Icon, useTheme } from 'react-native-paper';
+import { StyleSheet, useWindowDimensions, View } from 'react-native';
+import { Icon, Text, useTheme } from 'react-native-paper';
 
 export const MainAuthScreen = () => {
   const { styles, theme } = useStyles();
+  const d = useWindowDimensions();
+
   return (
     <View style={styles.screen}>
-      <View style={styles.top} />
-      <View style={styles.center}>
-        <Icon source={'cash'} size={160} color={theme.colors.primary} />
+      <View style={styles.logo}>
+        <Icon source={'cash'} size={135} color={theme.colors.primary} />
+        <Text style={styles.text}>Money Enjoyer</Text>
       </View>
-      <View style={styles.bottom} />
+      <SignInWithGoogleButton />
     </View>
   );
 };
@@ -22,19 +24,16 @@ const useStyles = () => {
       screen: {
         flex: 1,
         backgroundColor: theme.colors.background,
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 60,
       },
-      top: {
-        flex: 1,
-        backgroundColor: 'blue',
-      },
-      center: {
-        flex: 1,
-        backgroundColor: 'red',
+      logo: {
         alignItems: 'center',
       },
-      bottom: {
-        flex: 1,
-        backgroundColor: 'yellow',
+      text: {
+        ...theme.fonts.titleLarge,
+        color: theme.colors.primary,
       },
     }),
     theme,

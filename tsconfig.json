@@ -1,6 +1,6 @@
 {
   "extends": "@react-native/typescript-config",
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", "src/entities/party/model/chain"],
   "exclude": ["**/node_modules", "**/Pods"],
   "compilerOptions": {
     "types": ["jest"],
@@ -12,6 +12,7 @@
       "@features/*": ["./src/features/*"],
       "@widgets/*": ["./src/widgets/*"],
       "@shared/*": ["./src/shared/*"]
-    }
+    },
+    "noUncheckedIndexedAccess": true
   }
 }

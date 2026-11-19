@@ -26,12 +26,15 @@
     "react-native-nitro-google-signin": "^2.3.1",
     "react-native-nitro-modules": "^0.37.2",
     "react-native-paper": "^5.15.4",
+    "react-native-paper-dates": "^0.24.2",
     "react-native-safe-area-context": "^5.11.1",
     "react-native-screens": "^4.30.1",
+    "zod": "^4.6.7",
     "zustand": "^5.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
+    "@babel/plugin-transform-export-namespace-from": "^7.29.7",
     "@babel/preset-env": "^7.25.3",
     "@babel/runtime": "^7.25.0",
     "@react-native-community/cli": "20.2.0",

@@ -2,7 +2,7 @@ import { sessionStore } from '@/entities/session/model/sessionStore';
 import { MainAuthScreen } from '@/screens/auth/MainAuthScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { HomeTabs } from './HomeTabs';
+import { HomeTabs } from './HomeTabs/HomeTabs';
 
 const RootStack = createNativeStackNavigator();
 
