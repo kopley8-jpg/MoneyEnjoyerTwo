@@ -4,7 +4,6 @@ import { Icon, Text, useTheme } from 'react-native-paper';
 
 export const MainAuthScreen = () => {
   const { styles, theme } = useStyles();
-  const d = useWindowDimensions();
 
   return (
     <View style={styles.screen}>

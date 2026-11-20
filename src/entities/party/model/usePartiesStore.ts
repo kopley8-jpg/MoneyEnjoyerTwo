@@ -1,48 +1,27 @@
 import { create } from 'zustand';
-import { Chain, Folder, PartiesData, PartiesDb, Party } from './folder';
-import { SubscribeDbError } from '@/shared/api/subscribeDb';
+import { PartiesDb } from './folder';
 
 type PartiesStore = {
-  status: 'idle' | 'loading' | 'ready' | 'error';
-  error: SubscribeDbError | null;
-  data: PartiesData;
-  setLoading: () => void;
-  setReady: (data: PartiesData) => void;
-  setError: (e: SubscribeDbError) => void;
+  data: PartiesDb;
+  setReady: (data: PartiesDb) => void;
   reset: () => void;
 };
 
 export const usePartiesStore = create<PartiesStore>()(set => ({
-  status: 'idle',
-  error: null,
   data: {
-    folders: [],
-    chains: [],
-    parties: [],
-    foldersById: {},
-    chainsById: {},
-    partiesById: {},
-  },
-  setLoading: () => {
-    set({ status: 'loading' });
+    folders: {},
+    chains: {},
+    parties: {},
   },
   setReady(data) {
-    set({ status: 'ready', error: null, data });
-  },
-  setError(error) {
-    set({ status: 'error', error });
+    set({ data });
   },
   reset() {
     set({
-      status: 'idle',
-      error: null,
       data: {
-        folders: [],
-        chains: [],
-        parties: [],
-        foldersById: {},
-        chainsById: {},
-        partiesById: {},
+        folders: {},
+        chains: {},
+        parties: {},
       },
     });
   },

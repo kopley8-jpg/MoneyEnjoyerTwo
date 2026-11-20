@@ -13,4 +13,4 @@ export const TreeNodeSchema = z.object({
   name: z.string(),
 });
 
-export const TreeNodeDBSchema = z.record(z.string(), TreeNodeSchema);
+export const TreeNodesDBSchema = z.record(z.string(), TreeNodeSchema);

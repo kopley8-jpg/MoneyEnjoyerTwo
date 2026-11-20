@@ -1,14 +1,6 @@
-import { TransformDbCollection } from '@/shared/lib/RTDBTransform/DbCollectionToArray';
-import {
-  findFolderTreeIssues,
-  TreeIssue,
-} from '@/shared/tree/model/findFolderTreeIssues';
-import { ROOT_ID, TreeNode, TreeNodeDBSchema } from '@/shared/tree/model/types';
-import { parent } from '@react-native-firebase/app/dist/module/internal/web/firebaseFirestorePipelines';
-import { useState } from 'react';
-import z, { object } from 'zod';
-
-export type Folder = TreeNode;
+import { findFolderTreeIssues } from '@/shared/tree/model/findFolderTreeIssues';
+import { ROOT_ID, TreeNodesDBSchema } from '@/shared/tree/model/types';
+import z from 'zod';
 
 const PartySchema = z.object({
   parentType: z.union([z.literal('folder'), z.literal('chain')]),
@@ -25,7 +17,7 @@ export const PartiesDBSchema = z.preprocess(
   v => v ?? {},
   z
     .object({
-      folders: TreeNodeDBSchema.default({}),
+      folders: TreeNodesDBSchema.default({}),
       chains: z.record(z.string(), ChainSchema).default({}),
       parties: z.record(z.string(), PartySchema).default({}),
     })
@@ -33,8 +25,9 @@ export const PartiesDBSchema = z.preprocess(
       const hasFolder = (id: string) => id === ROOT_ID || id in data.folders;
       const hasChain = (id: string) => id in data.chains;
 
-      const treeIssues = findFolderTreeIssues(data.folders);
-      treeIssues.map(issue => ctx.addIssue({ ...issue, code: 'custom' }));
+      findFolderTreeIssues(data.folders).map(issue =>
+        ctx.addIssue({ ...issue, code: 'custom' }),
+      );
 
       Object.entries(data.parties).forEach(([id, party]) => {
         if (
@@ -66,12 +59,3 @@ export type PartiesDb = z.infer<typeof PartiesDBSchema>;
 export type Party = z.infer<typeof PartySchema> & { id: string };
 
 export type Chain = z.infer<typeof ChainSchema> & { id: string };
-
-export type PartiesData = {
-  folders: Folder[];
-  chains: Chain[];
-  parties: Party[]; // для списков
-  foldersById: Record<string, Folder>;
-  chainsById: Record<string, Chain>;
-  partiesById: Record<string, Party>; // для поиска по id
-};

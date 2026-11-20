@@ -60,6 +60,8 @@ type Position =
         }
     );
 
+type tr = {};
+
 const measurementUnits = {
   item: ['mass', 'volume', 'count'],
   service: ['time', 'no-unit'],

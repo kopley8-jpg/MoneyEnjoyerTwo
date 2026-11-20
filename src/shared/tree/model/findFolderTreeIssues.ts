@@ -24,12 +24,12 @@ export const findFolderTreeIssues = (
       if (parentId === 'root' || checked.get(parentId) === 'ok') {
         verdict = 'ok';
       } else if (checked.get(parentId) === 'bad') {
-        issues.push({
-          path: ['folders', id, 'parentId'],
-          message: `Folder ${id} leads to wrong parent. ${
-            path.length > 0 ? '[' + path.join(' -> ') + ' ->' : '['
-          } ${id} moves to wrong ${parentId} ]`,
-        });
+        // issues.push({
+        //   path: ['folders', id, 'parentId'],
+        //   message: `Folder ${id} leads to wrong parent. ${
+        //     path.length > 0 ? '[' + path.join(' -> ') + ' ->' : '['
+        //   }${id} moves to wrong ${parentId} ]`,
+        // });
         path.push(id);
         verdict = 'bad';
       } else if (onPath.has(parentId)) {

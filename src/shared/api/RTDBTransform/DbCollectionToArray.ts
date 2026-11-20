@@ -1,4 +1,4 @@
-export const TransformDbCollection = <T extends object>(
+export const TransformCollection = <T extends object>(
   record: Record<string, T>,
 ) => {
   const toIndex = Object.fromEntries(
