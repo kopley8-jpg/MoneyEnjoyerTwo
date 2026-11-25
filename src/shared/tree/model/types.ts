@@ -8,6 +8,8 @@ export type TreeNode = {
   name: string;
 };
 
+export type Folder = TreeNode;
+
 export const TreeNodeSchema = z.object({
   parentId: z.string(),
   name: z.string(),

@@ -1,3 +1,4 @@
+import { sessionStore } from '@/entities/session/model/sessionStore';
 import { signOut } from '@/features/auth/sign-out';
 import { useState } from 'react';
 import { Icon, IconButton, Menu, useTheme } from 'react-native-paper';

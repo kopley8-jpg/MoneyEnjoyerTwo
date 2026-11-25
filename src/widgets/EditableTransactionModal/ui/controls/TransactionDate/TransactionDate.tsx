@@ -15,7 +15,7 @@ export const TransactionDate = ({
   const { styles, theme } = useStyles();
   const [visible, setVisible] = useState(false);
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={() => setVisible(true)}>
       <Icon
         source={'calendar-outline'}
         size={24}
@@ -28,11 +28,12 @@ export const TransactionDate = ({
         visible={visible}
         onDismiss={() => setVisible(false)}
         date={value ? new Date(value) : undefined}
-        onConfirm={d =>
+        onConfirm={d => {
           d.date
             ? onChange({ key: 'date', value: d.date.getTime() })
-            : undefined
-        }
+            : undefined;
+          setVisible(false);
+        }}
       />
     </TouchableOpacity>
   );

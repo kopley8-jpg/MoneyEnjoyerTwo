@@ -55,6 +55,7 @@ export const PartiesDBSchema = z.preprocess(
 );
 
 export type PartiesDb = z.infer<typeof PartiesDBSchema>;
+export type PartiesData = PartiesDb;
 
 export type Party = z.infer<typeof PartySchema> & { id: string };
 

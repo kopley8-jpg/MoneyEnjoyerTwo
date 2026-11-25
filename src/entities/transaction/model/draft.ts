@@ -5,14 +5,14 @@ export type TransactionDraft = {
     ? Transaction[K]
     : Transaction[K] | null;
 };
-export const createEmptyDraft = (): TransactionDraft => {
-  //TODO добавить подгрузку последней транзакции для дефолтов
-
-  return {
+export const createEmptyDraft = (
+  preset?: Partial<TransactionDraft>,
+): TransactionDraft => {
+  const draft: TransactionDraft = {
     type: null,
-    currency: null,
+    date: null,
     partyRef: null,
-    positions: [],
-    summ: null,
   };
+
+  return { ...draft, ...preset };
 };

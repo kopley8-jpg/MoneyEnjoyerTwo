@@ -28,6 +28,7 @@ export const TransactionType = ({
       }
     >
       <Menu.Item
+        leadingIcon={'cash-plus'}
         title={'Доход'}
         onPress={() => {
           onPick('income');
@@ -35,6 +36,7 @@ export const TransactionType = ({
         }}
       />
       <Menu.Item
+        leadingIcon={'cash-minus'}
         title={'Расход'}
         onPress={() => {
           onPick('expense');
@@ -42,6 +44,7 @@ export const TransactionType = ({
         }}
       />
       <Menu.Item
+        leadingIcon={'cash-100'}
         title={'Обмен валют'}
         onPress={() => {
           onPick('exchange');
@@ -60,21 +63,23 @@ export const TransactionTypeButton = ({
   onPress: () => void;
 }) => {
   const { styles, theme } = useStyles();
-  const { icon, text } = getButtonConfig(value);
+  const { icon, title } = getButtonConfig(value);
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
       <Icon source={icon} size={24} color={theme.colors.onSecondaryContainer} />
-      <Text style={styles.text}>{text}</Text>
+      <Text style={styles.text}>{title}</Text>
     </TouchableOpacity>
   );
 };
 
 const getButtonConfig = (type: TransactionDraft['type']) =>
   type
-    ? type === 'expense'
-      ? { icon: 'cash-minus', text: 'Расход' }
-      : { icon: 'cash-plus', text: 'Доход' }
-    : { icon: 'cash', text: 'Тип' };
+    ? {
+        expense: { icon: 'cash-minus', title: 'Расход' },
+        income: { icon: 'cash-plus', title: 'Доход' },
+        exchange: { icon: 'cash-100', title: 'Обмен' },
+      }[type]
+    : { icon: 'cash', title: 'Тип' };
 
 const useStyles = () => {
   const theme = useTheme();

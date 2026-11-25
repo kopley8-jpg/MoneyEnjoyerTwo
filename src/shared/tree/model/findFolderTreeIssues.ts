@@ -1,9 +1,9 @@
-export type TreeIssue = { path: (string | number)[]; message: string };
+import { DataValidationIssue } from '@/shared/data-validation/types';
 
 export const findFolderTreeIssues = (
   folders: Record<string, { parentId: string }>,
-): TreeIssue[] => {
-  let issues: TreeIssue[] = [];
+): DataValidationIssue[] => {
+  let issues: DataValidationIssue[] = [];
 
   const checked = new Map<string, 'ok' | 'bad'>();
 

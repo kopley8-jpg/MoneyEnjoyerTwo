@@ -1,6 +1,10 @@
 import { SubscribeDbError } from '../api/subscribeDb';
 
-export type CriticalErrors = {
-  type: 'subscribeDbError';
-  error: SubscribeDbError;
-};
+export type CriticalErrors =
+  | {
+      type: 'subscribeDbError';
+      error: SubscribeDbError;
+    }
+  | {
+      type: 'subscribeDbError';
+    };
